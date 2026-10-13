@@ -13,7 +13,7 @@ struct node *tail = NULL;
 void insertBeg() {
     struct node *newnode;
     newnode = (struct node *)malloc(sizeof(struct node));
-
+    
     printf("Enter data: ");
     scanf("%d", &newnode->data);
 
@@ -86,7 +86,7 @@ void deleteEnd() {
     printf("Node deleted from end\n");
 }
 
-void displayForward() {
+void display() {
     struct node *temp = head;
 
     if (head == NULL) {
@@ -102,22 +102,6 @@ void displayForward() {
     printf("\n");
 }
 
-void displayBackward() {
-    struct node *temp = tail;
-
-    if (tail == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-
-    printf("Reverse List: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->prev;
-    }
-    printf("\n");
-}
-
 int main() {
     int choice;
 
@@ -127,9 +111,8 @@ int main() {
         printf("2. Insert at End\n");
         printf("3. Delete from Beginning\n");
         printf("4. Delete from End\n");
-        printf("5. Display Forward\n");
-        printf("6. Display Backward\n");
-        printf("7. Exit\n");
+        printf("5. Display\n");
+        printf("6. Exit\n");
 
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -152,14 +135,10 @@ int main() {
                 break;
 
             case 5:
-                displayForward();
+                display();
                 break;
 
             case 6:
-                displayBackward();
-                break;
-
-            case 7:
                 exit(0);
 
             default:
